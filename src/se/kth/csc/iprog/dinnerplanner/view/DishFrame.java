@@ -15,8 +15,7 @@ import java.awt.*;
 public class DishFrame extends JFrame {
     public DishFrame(DinnerModel model){
         JPanel panel = new JPanel(new GridBagLayout());
-        setSize(600, 400);
-        panel.setSize(getSize());
+        setSize(500, 330);
 
         //Top panel
         GridBagConstraints constraints = new GridBagConstraints();
