@@ -29,21 +29,41 @@ public class MainView extends JPanel {
 		searchBarPanel.add(new JLabel("SEARCH: "));
 		searchBarPanel.add(searchInput);
 		
+		
+		//Images on our avaliable dishes
 		Icon dishIcon = new ImageIcon("images/icecream.jpg");
 		
-		JButton b1 = new JButton("iskräm",dishIcon);
-		b1.setVerticalTextPosition(AbstractButton.BOTTOM);
-		b1.setHorizontalTextPosition(AbstractButton.CENTER);
+		//Text for our avaliable dishes
+		String[] avaliableDishes = new String[8];
+		avaliableDishes[0] = "Bakedbrie";
+		avaliableDishes[1] = "Icecream";
+		avaliableDishes[2] = "Meatballs";
+		avaliableDishes[3] = "Sourdough";
+		avaliableDishes[4] = "Toast";
+		avaliableDishes[5] = "Pizza";
+		avaliableDishes[6] = "Pancake";
+		avaliableDishes[7] = "Salmon";
+		
+		int numberOfDishes = avaliableDishes.length;
+		
+		for(int i = 0; i<numberOfDishes;i++) {
+		//	dishesPanel.add(new JButton("dish"+i));
+			JButton dishButton = new JButton(avaliableDishes[i],dishIcon);
+			dishButton.setVerticalTextPosition(AbstractButton.BOTTOM);
+			dishButton.setHorizontalTextPosition(AbstractButton.CENTER);
+			dishesPanel.add(dishButton);
+		}
+		
+		
 		
 		//dishPickerView.add(label);
-		dishesPanel.add(b1);
-		dishesPanel.add(new JButton("dish2"));
-		dishesPanel.add(new JButton("dish3"));
-		dishesPanel.add(new JButton("dish4"));
-		dishesPanel.add(new JButton("dish5"));
-		dishesPanel.add(new JButton("dish6"));
-		dishesPanel.add(new JButton("dish7"));
-		dishesPanel.add(new JButton("dish8"));
+		//dishesPanel.add(new JButton("dish2"));
+		//dishesPanel.add(new JButton("dish3"));
+		//dishesPanel.add(new JButton("dish4"));
+		//dishesPanel.add(new JButton("dish5"));
+		//dishesPanel.add(new JButton("dish6"));
+		//dishesPanel.add(new JButton("dish7"));
+		//dishesPanel.add(new JButton("dish8"));
 		
 		dishPickerView.add(searchBarPanel, BorderLayout.PAGE_START);
 		dishPickerView.add(dishesPanel, BorderLayout.CENTER);
