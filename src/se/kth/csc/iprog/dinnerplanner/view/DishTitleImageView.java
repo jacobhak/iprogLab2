@@ -41,7 +41,11 @@ public class DishTitleImageView extends Container {
         constraints.gridy = 0;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
+        constraints.ipadx = 50;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         JLabel label1 = new JLabel(dish.getName());
+        label1.setFont(new Font("Serif", Font.PLAIN, 20));
+
         JPanel panel2 = new JPanel();
         panel2.add(label1);
         panel.add(panel2,constraints);
@@ -52,11 +56,12 @@ public class DishTitleImageView extends Container {
         constraints.gridy = 1;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
+        constraints.ipady = 30;
         JLabel label2 = new JLabel(""+dish.getCost(4)+" serves 4 people.");
         JPanel panel3 = new JPanel();
         panel3.add(label2);
         panel.add(panel3,constraints);
 
-        add(panel);
+        add(panel, BorderLayout.LINE_START);
     }
 }
