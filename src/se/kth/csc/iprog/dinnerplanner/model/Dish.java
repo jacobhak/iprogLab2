@@ -8,6 +8,10 @@ public class Dish {
 	public static final int STARTER = 1;
 	public static final int MAIN = 2;
 	public static final int DESERT = 3;
+    public static final String STARTER_TEXT = "Starter";
+    public static final String MAIN_TEXT = "Main";
+    public static final String DESSERT_TEXT = "Dessert";
+
 	
 	String name;
 	int type; // starter (1), main (2) or desert (3)  
@@ -35,6 +39,19 @@ public class Dish {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+    public String getTypeText() {
+        switch (type){
+            case 1:
+                return STARTER_TEXT;
+            case 2:
+                return MAIN_TEXT;
+            case 3:
+                return DESSERT_TEXT;
+        }
+        return "";
+    }
+
 	public String getImage() {
 		return image;
 	}
