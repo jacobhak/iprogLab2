@@ -15,10 +15,7 @@ import java.awt.*;
 public class IngredientsFrame extends JFrame {
     public IngredientsFrame(DinnerModel model) {
         IngredientsTableView table = new IngredientsTableView(model);
-        Container container = new Container();
-        container.setLayout(new BorderLayout());
-        container.add(table.getTableHeader(), BorderLayout.PAGE_START);
-        container.add(table, BorderLayout.CENTER);
-        setContentPane(container);
+        setContentPane(table);
+        setSize(table.getSize());
     }
 }
