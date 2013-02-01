@@ -102,6 +102,7 @@ public class DinnerModel implements IDinnerModel {
         dish1.addIngredient(dish1ing4);
         dish1.addIngredient(dish1ing5);
         dishes.add(dish1);
+        currentMenu.add(0,dish1);
 
         Dish dish2 = new Dish("Meat balls",Dish.MAIN,"meatballs.jpg","Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.");
         Ingredient dish2ing1 = new Ingredient("extra lean ground beef",115,"g",20);
@@ -127,5 +128,6 @@ public class DinnerModel implements IDinnerModel {
         dish2.addIngredient(dish2ing10);
         dish2.addIngredient(dish2ing11);
         dishes.add(dish2);
+        currentMenu.add(1,dish2);
     }
 }
