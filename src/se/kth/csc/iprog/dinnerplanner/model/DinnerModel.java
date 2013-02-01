@@ -101,6 +101,7 @@ public class DinnerModel implements IDinnerModel {
         dish1.addIngredient(dish1ing3);
         dish1.addIngredient(dish1ing4);
         dish1.addIngredient(dish1ing5);
+        dish1.setImage("images/toast.jpg");
         dishes.add(dish1);
         currentMenu.add(0,dish1);
 

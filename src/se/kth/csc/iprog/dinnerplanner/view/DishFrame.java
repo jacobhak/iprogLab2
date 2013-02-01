@@ -24,11 +24,8 @@ public class DishFrame extends JFrame {
         constraints.gridy = 0;
         constraints.gridheight = 1;
         constraints.gridwidth = 3;
-        JPanel topPanel = new JPanel();
-        JLabel label = new JLabel();
-        label.setText("Top Panel lalalalalalalalalalalalalalalal");
-        topPanel.add(label);
-        panel.add(topPanel, constraints);
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(new DishTitleImageView(model.getSelectedDish(0)), constraints);
 
         //Horizontal Separator
         constraints = new GridBagConstraints();

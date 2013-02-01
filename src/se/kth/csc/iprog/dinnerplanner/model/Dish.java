@@ -59,6 +59,14 @@ public class Dish {
 	public void removeIngredient(Ingredient ing){
 		ingredients.remove(ing);
 	}
+
+    public double getCost(int numberOfServings) {
+        int totalCost = 0;
+        for (Ingredient ingredient : getIngredients()) {
+            totalCost += ingredient.price * numberOfServings;
+        }
+        return totalCost;
+    }
 	
 	public boolean contains(String filter){
 		if(name.toLowerCase().contains(filter.toLowerCase())){
