@@ -1,6 +1,9 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -19,18 +22,46 @@ import javax.swing.JTextField;
 public class MainView extends JPanel {
 	
 	public MainView(DinnerModel model){
-		JLabel label = new JLabel();
-		setLayout(new BorderLayout());
+		setLayout(new GridBagLayout());
+
+		GridBagConstraints mainConstraints = new GridBagConstraints();
 		
-		label.setText(""+model.getTotalMenuPrice());
+		//JSeparator vertical = new JSeparator(JSeparator.VERTICAL);
+		JSeparator vertical = new JSeparator();
+		vertical.setOrientation(JSeparator.NORTH);
+		vertical.setPreferredSize(new Dimension(5,2));
+		mainConstraints.gridx = 1;
+		mainConstraints.gridy = 0;
+		mainConstraints.fill = GridBagConstraints.VERTICAL;
+		this.add(vertical,mainConstraints);
 		
-		JSeparator sep = new JSeparator();
-		sep.setOrientation(JSeparator.NORTH);
+		DishPickerView[] listDPV = new DishPickerView[3];
+		listDPV[0] = new DishPickerView();
+		listDPV[1] = new DishPickerView();
+		listDPV[2] = new DishPickerView();
 		
-		this.add(new dishPickerView(),BorderLayout.WEST);
+		CoursesTabbedPane tabs = new CoursesTabbedPane(listDPV);
+		mainConstraints.gridx = 0;
+		mainConstraints.gridy = 0;
+		this.add(tabs,mainConstraints);
+		
+		
+		DragAndDropMenu mainDragAndDropMenu = new DragAndDropMenu(model);
+		mainConstraints.gridx = 2;
+		mainConstraints.gridy = 0;
+		this.add(mainDragAndDropMenu,mainConstraints);
+		
+		//JSeparator sep = new JSeparator();
+		//sep.setOrientation(JSeparator.NORTH);
+		
+		
+		
+		/*
+		this.add(new CoursesTabbedPane(dishPV), BorderLayout.CENTER);
+		this.add(dishPV,BorderLayout.WEST);
 		this.add(sep,BorderLayout.CENTER);
 		this.add(new DragAndDropMenu(model),BorderLayout.EAST);
-		
+		*/
 		//here you set other layout elements
 	}
 }
