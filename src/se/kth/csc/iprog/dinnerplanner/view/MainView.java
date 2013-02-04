@@ -23,6 +23,7 @@ public class MainView extends JPanel {
 	
 	public MainView(DinnerModel model){
 		setLayout(new GridBagLayout());
+		setSize(600,400);
 
 		GridBagConstraints mainConstraints = new GridBagConstraints();
 		
@@ -36,14 +37,14 @@ public class MainView extends JPanel {
 		this.add(vertical,mainConstraints);
 		
 		DishPickerView[] listDPV = new DishPickerView[3];
-		listDPV[0] = new DishPickerView();
-		listDPV[1] = new DishPickerView();
-		listDPV[2] = new DishPickerView();
+		listDPV[0] = new DishPickerView(model, 1);
+		listDPV[1] = new DishPickerView(model, 2);
+		listDPV[2] = new DishPickerView(model, 3);
 		
 		CoursesTabbedPane tabs = new CoursesTabbedPane(listDPV);
 		mainConstraints.gridx = 0;
 		mainConstraints.gridy = 0;
-		this.add(tabs,mainConstraints);
+		this.add(tabs,mainConstraints);	
 		
 		
 		DragAndDropMenu mainDragAndDropMenu = new DragAndDropMenu(model);

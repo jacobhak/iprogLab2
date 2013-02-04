@@ -101,7 +101,6 @@ public class DinnerModel implements IDinnerModel {
         dish1.addIngredient(dish1ing3);
         dish1.addIngredient(dish1ing4);
         dish1.addIngredient(dish1ing5);
-        dish1.setImage("images/toast.jpg");
         dishes.add(dish1);
         currentMenu.add(0,dish1);
 
@@ -130,5 +129,25 @@ public class DinnerModel implements IDinnerModel {
         dish2.addIngredient(dish2ing11);
         dishes.add(dish2);
         currentMenu.add(1,dish2);
+        
+        Dish dish3 = new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min.");
+        Ingredient dish3ing1 = new Ingredient("Brie",1,"",4);
+        Ingredient dish3ing2 = new Ingredient("White wine",100,"ml",6);
+        Ingredient dish3ing3 = new Ingredient("Garlic",2,"cloves",1);
+        dish1.addIngredient(dish3ing1);
+        dish1.addIngredient(dish3ing2);
+        dish1.addIngredient(dish3ing3);
+        dishes.add(dish3);
+        currentMenu.add(2,dish3);
+        
+        Dish dish4 = new Dish("Sourdough",Dish.STARTER,"sourdough.jpg","Preheat oven to 225C. Mix ingredients. Work the dough. Place in oven for 1 hour.");
+        Ingredient dish4ing1 = new Ingredient("Flour",1,"l",1);
+        Ingredient dish4ing2 = new Ingredient("Yiest",50,"g",1);
+        Ingredient dish4ing3 = new Ingredient("Salt",1,"pinch",0.10);
+        dish1.addIngredient(dish4ing1);
+        dish1.addIngredient(dish4ing2);
+        dish1.addIngredient(dish4ing3);
+        dishes.add(dish4);
+        currentMenu.add(3,dish4);
     }
 }

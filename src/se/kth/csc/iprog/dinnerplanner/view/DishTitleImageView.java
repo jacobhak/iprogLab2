@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.view;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 import static java.awt.Font.*;
@@ -27,7 +28,8 @@ public class DishTitleImageView extends Container {
         constraints.gridy = 0;
         constraints.gridheight = 2;
         constraints.gridwidth = 1;
-        ImageIcon imageIcon = new ImageIcon(dish.getImage());
+        String imageURL = "images/"+dish.getImage();
+		Icon imageIcon = new ImageIcon(imageURL);
         JPanel panel1 = new JPanel(new BorderLayout());
         JLabel label = new JLabel("", imageIcon, JLabel.LEADING);
         panel1.add(label);
