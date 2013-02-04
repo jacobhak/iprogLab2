@@ -25,7 +25,7 @@ public class CoursesTabbedPane extends Container{
 				tmpPanel.add(dpv[t]);
 				coursesTabbedPane.addTab(coursesTitle[t],tmpPanel);
 			}
-			
+			setSize(600,800);
 			this.add(coursesTabbedPane,BorderLayout.PAGE_START);
 	}
 }

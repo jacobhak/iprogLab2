@@ -23,18 +23,11 @@ public class MainView extends JPanel {
 	
 	public MainView(DinnerModel model){
 		setLayout(new GridBagLayout());
-		setSize(600,400);
+        setSize(1024,386);
 
 		GridBagConstraints mainConstraints = new GridBagConstraints();
 		
-		//JSeparator vertical = new JSeparator(JSeparator.VERTICAL);
-		JSeparator vertical = new JSeparator();
-		vertical.setOrientation(JSeparator.NORTH);
-		vertical.setPreferredSize(new Dimension(5,2));
-		mainConstraints.gridx = 1;
-		mainConstraints.gridy = 0;
-		mainConstraints.fill = GridBagConstraints.VERTICAL;
-		this.add(vertical,mainConstraints);
+
 		
 		DishPickerView[] listDPV = new DishPickerView[3];
 		listDPV[0] = new DishPickerView(model, 1);
@@ -44,12 +37,23 @@ public class MainView extends JPanel {
 		CoursesTabbedPane tabs = new CoursesTabbedPane(listDPV);
 		mainConstraints.gridx = 0;
 		mainConstraints.gridy = 0;
-		this.add(tabs,mainConstraints);	
-		
+        mainConstraints.gridwidth = 5;
+		this.add(tabs,mainConstraints);
+
+
+        JSeparator vertical = new JSeparator();
+        vertical.setOrientation(JSeparator.NORTH);
+        mainConstraints = new GridBagConstraints();
+        mainConstraints.gridx = 5;
+        mainConstraints.gridy = 0;
+        mainConstraints.fill = GridBagConstraints.VERTICAL;
+        this.add(vertical,mainConstraints);
 		
 		DragAndDropMenu mainDragAndDropMenu = new DragAndDropMenu(model);
-		mainConstraints.gridx = 2;
+        mainConstraints = new GridBagConstraints();
+		mainConstraints.gridx = 6;
 		mainConstraints.gridy = 0;
+        mainConstraints.gridwidth = 1;
 		this.add(mainDragAndDropMenu,mainConstraints);
 		
 		//JSeparator sep = new JSeparator();

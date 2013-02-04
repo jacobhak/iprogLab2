@@ -139,7 +139,8 @@ public class DinnerModel implements IDinnerModel {
         dish3.addIngredient(dish3ing2);
         dish3.addIngredient(dish3ing3);
         dishes.add(dish3);
-        currentMenu.add(2,dish3);
+
+        currentMenu.add(2, dish3);
         
         Dish dish4 = new Dish("Sourdough",Dish.STARTER,"sourdough.jpg","Preheat oven to 225C. Mix ingredients. Work the dough. Place in oven for 1 hour.");
         Ingredient dish4ing1 = new Ingredient("Flour",1,"l",1);
@@ -150,5 +151,11 @@ public class DinnerModel implements IDinnerModel {
         dish4.addIngredient(dish4ing3);
         dishes.add(dish4);
         currentMenu.add(3,dish4);
+        dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
+        dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
+        dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
+        dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
+
+
     }
 }

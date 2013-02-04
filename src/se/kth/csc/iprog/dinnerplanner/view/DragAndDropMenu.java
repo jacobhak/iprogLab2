@@ -83,7 +83,8 @@ public class DragAndDropMenu extends Container {
         constraints.gridy = 5;
         constraints.gridwidth = 1;
         panel.add(ingr,constraints);
-        
+
+        setSize(400,200);
         this.add(panel,BorderLayout.PAGE_START);
         
         
