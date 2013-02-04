@@ -53,7 +53,7 @@ public class DishTitleImageView extends Container {
         constraints.gridy = 1;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
-        JLabel label2 = new JLabel(""+dish.getCost(4)+" serves 4 people.");
+        JLabel label2 = new JLabel(""+dish.getCost(4)+"$, serves 4 people.");
         JPanel panel3 = new JPanel();
         panel3.add(label2);
         panel.add(panel3,constraints);
