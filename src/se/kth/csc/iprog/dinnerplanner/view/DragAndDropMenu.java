@@ -51,7 +51,7 @@ public class DragAndDropMenu extends Container {
         JTextArea dragDropArea = new JTextArea(
         	    "Drag your dishes here " +
         	    "to complete a menu! ",
-        	    10,1
+        	    1,1
         	);
         dragDropArea.setFont(new Font("Serif", Font.ITALIC, 10));
         constraints.gridx = 0;
@@ -59,15 +59,28 @@ public class DragAndDropMenu extends Container {
         constraints.gridwidth = 2;
         panel.add(dragDropArea,constraints);
         
-        JButton prep = new JButton("Preparations");
+        DishTitleImageView showDishInMenu = new DishTitleImageView(dm.getSelectedDish(0));
         constraints.gridx = 0;
         constraints.gridy = 4;
+        constraints.gridwidth = 1;
+        panel.add(showDishInMenu,constraints);
+        
+        JButton deleteDish = new JButton("Delete");
+        deleteDish.setBackground(Color.red);
+        constraints.gridx = 1;
+        constraints.gridy = 4;
+        constraints.gridwidth = 1;
+        panel.add(deleteDish,constraints);
+        
+        JButton prep = new JButton("Preparations");
+        constraints.gridx = 0;
+        constraints.gridy = 5;
         constraints.gridwidth = 1;
         panel.add(prep,constraints);
         
         JButton ingr = new JButton("Ingredients");
         constraints.gridx = 1;
-        constraints.gridy = 4;
+        constraints.gridy = 5;
         constraints.gridwidth = 1;
         panel.add(ingr,constraints);
         

@@ -30,7 +30,7 @@ public class DishTitleImageView extends Container {
         constraints.gridwidth = 1;
         String imageURL = "images/"+dish.getImage();
 		Icon imageIcon = new ImageIcon(imageURL);
-        JPanel panel1 = new JPanel(new BorderLayout());
+        JPanel panel1 = new JPanel(new BorderLayout());	
         JLabel label = new JLabel("", imageIcon, JLabel.LEADING);
         panel1.add(label);
         panel.add(panel1,constraints);

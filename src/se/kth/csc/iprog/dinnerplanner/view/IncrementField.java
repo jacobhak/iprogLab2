@@ -21,8 +21,10 @@ public class IncrementField extends Container{
  
             public void actionPerformed(ActionEvent e)
             {
-            	numClicks++;
-            	number.setText(""+numClicks);
+            	if(numClicks<Integer.MAX_VALUE) {
+            		numClicks++;
+            		number.setText(""+numClicks);
+            	}
             }
         });
 		
@@ -30,8 +32,10 @@ public class IncrementField extends Container{
 			 
             public void actionPerformed(ActionEvent e)
             {
-            	numClicks--;
-            	number.setText(""+numClicks);
+            	if(numClicks>0) {
+            		numClicks--;
+            		number.setText(""+numClicks);
+            	}
             }
         });
 		this.add(number);
