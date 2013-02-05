@@ -5,6 +5,9 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,15 +16,18 @@ import java.awt.*;
  * Time: 15:41
  * To change this template use File | Settings | File Templates.
  */
-public class PreparationsFrame extends JFrame {
+public class PreparationsFrame extends JFrame implements Observer {
+    JPanel preparationsPanel;
+    DinnerModel model;
     public PreparationsFrame (DinnerModel model){
-        JPanel panel = new JPanel(new GridLayout(0,1));
-        panel.setBackground(Color.WHITE);
+        this.model = model;
+        preparationsPanel = new JPanel(new GridLayout(0,1));
+        preparationsPanel.setBackground(Color.WHITE);
         for (Dish dish : model.getFullMenu()){
-            panel.add(dishPreparationPanel(dish));
+            preparationsPanel.add(dishPreparationPanel(dish));
         }
         setSize(400,500);
-        add(panel);
+        add(preparationsPanel);
 
     }
     private JPanel dishPreparationPanel(Dish dish){
@@ -37,5 +43,15 @@ public class PreparationsFrame extends JFrame {
         textArea.setSize(300,400);
         panel.add(textArea);
         return panel;
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        if (o.getClass().equals(ArrayList.class)) {
+            preparationsPanel.removeAll();
+            for (Dish dish : model.getFullMenu()){
+                preparationsPanel.add(dishPreparationPanel(dish));
+            }
+        }
     }
 }
