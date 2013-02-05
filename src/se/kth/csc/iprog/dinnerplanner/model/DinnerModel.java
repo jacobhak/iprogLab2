@@ -60,6 +60,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
     }
 
     public void setNumberOfGuests(int numberOfGuests) {
+        if (numberOfGuests < 0) return;
         this.numberOfGuests = numberOfGuests;
         setChanged();
         notifyObservers(new Integer(numberOfGuests));
