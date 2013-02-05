@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.AbstractButton;
 import javax.swing.Icon;
@@ -30,9 +31,9 @@ public class MainView extends JPanel {
 
 		
 		DishPickerView[] listDPV = new DishPickerView[3];
-		listDPV[0] = new DishPickerView(model, 1);
-		listDPV[1] = new DishPickerView(model, 2);
-		listDPV[2] = new DishPickerView(model, 3);
+		listDPV[0] = new DishPickerView(model, Dish.STARTER);
+		listDPV[1] = new DishPickerView(model, Dish.MAIN);
+		listDPV[2] = new DishPickerView(model, Dish.DESERT);
 		
 		CoursesTabbedPane tabs = new CoursesTabbedPane(listDPV);
 		mainConstraints.gridx = 0;

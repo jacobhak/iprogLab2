@@ -25,7 +25,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns the set of dishes of specific type.
 	 */
 	public Set<Dish> getDishesOfType(int type){
 		Set<Dish> result = new HashSet<Dish>();
