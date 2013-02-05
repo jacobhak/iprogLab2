@@ -42,6 +42,7 @@ public class DishPickerView extends JPanel{
 		//searchBar panel
 		searchInput = new JTextField();
 		searchInput.setText("Enter dish to search");
+        searchInput.setColumns(20);
 		
 		searchBarPanel = new JPanel(new FlowLayout());
 		searchBarPanel.add(new JLabel("SEARCH: "));
