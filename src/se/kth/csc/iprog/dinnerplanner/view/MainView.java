@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 
 
 public class MainView extends JPanel {
+    DragAndDropController dragAndDropController;
 	
 	public MainView(DinnerModel model){
 		setLayout(new GridBagLayout());
@@ -51,6 +52,7 @@ public class MainView extends JPanel {
         this.add(vertical,mainConstraints);
 		
 		DragAndDropMenu mainDragAndDropMenu = new DragAndDropMenu(model);
+        dragAndDropController = new DragAndDropController(model,mainDragAndDropMenu);
         mainConstraints = new GridBagConstraints();
 		mainConstraints.gridx = 6;
 		mainConstraints.gridy = 0;

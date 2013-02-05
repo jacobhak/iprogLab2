@@ -21,8 +21,8 @@ public class DragAndDropController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == dndMenu.getPrepButton()) {
-			PreparationsFrame preparationsFrame = new PreparationsFrame(model);
+		if(e.getSource().equals(dndMenu.getPrepButton())) {
+            PreparationsFrame preparationsFrame = new PreparationsFrame(model);
 	        preparationsFrame.setTitle("Preparation");
 	        preparationsFrame.setVisible(true);
 		}
