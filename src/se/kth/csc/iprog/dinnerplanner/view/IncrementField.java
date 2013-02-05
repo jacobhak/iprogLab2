@@ -6,18 +6,23 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+
 public class IncrementField extends Container{
 	
-	private int numClicks = 4;
 	private JLabel number;
+	private JButton plusButton;
+	private JButton minusButton;
+	private DinnerModel dm;
 
-	public IncrementField (){
+	public IncrementField (DinnerModel dm){
 		setLayout(new FlowLayout());
-		JButton plusButton = new JButton("+");
-		JButton minusButton = new JButton("-");
-		this.number = new JLabel("4");
+		this.dm = dm;
+		plusButton= new JButton("+");
+		minusButton= new JButton("-");
+		this.number = new JLabel(""+dm.getNumberOfGuests());
 		
-		plusButton.addActionListener(new ActionListener() {
+		/*plusButton.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e)
             {
@@ -37,11 +42,19 @@ public class IncrementField extends Container{
             		number.setText(""+numClicks);
             	}
             }
-        });
+        });*/
 		this.add(number);
 		this.add(plusButton);
 		this.add(minusButton);
 		
+	}
+	
+	public JButton getPlusButton() {
+		return this.plusButton;
+	}
+	
+	public JButton getMinusButton() {
+		return this.minusButton;
 	}
 	
 	
