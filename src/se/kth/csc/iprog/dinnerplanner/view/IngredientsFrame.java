@@ -21,6 +21,7 @@ public class IngredientsFrame extends JFrame implements Observer {
     DinnerModel model;
     public IngredientsFrame(DinnerModel model) {
         this.model = model;
+        model.addObserver(this);
         tableView = new IngredientsTableView(model);
         setContentPane(tableView);
         setSize(tableView.getSize());

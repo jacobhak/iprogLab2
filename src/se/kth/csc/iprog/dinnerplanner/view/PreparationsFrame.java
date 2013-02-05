@@ -21,6 +21,7 @@ public class PreparationsFrame extends JFrame implements Observer {
     DinnerModel model;
     public PreparationsFrame (DinnerModel model){
         this.model = model;
+        model.addObserver(this);
         preparationsPanel = new JPanel(new GridLayout(0,1));
         preparationsPanel.setBackground(Color.WHITE);
         for (Dish dish : model.getFullMenu()){
