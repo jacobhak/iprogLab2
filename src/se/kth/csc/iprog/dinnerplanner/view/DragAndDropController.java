@@ -3,7 +3,6 @@ package se.kth.csc.iprog.dinnerplanner.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import se.kth.csc.iprog.dinnerplanner.DinnerPlanner;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 public class DragAndDropController implements ActionListener{

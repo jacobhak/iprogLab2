@@ -13,7 +13,6 @@ public class CoursesTabbedPane extends Container{
 	public CoursesTabbedPane(DishPickerView[] dpv) {
 			setLayout(new BorderLayout());
 			JTabbedPane coursesTabbedPane = new JTabbedPane();
-			//String[] coursesTitle = {"Starter", "Main", "Dessert"};
 			
 			String[] coursesTitle = new String[3];
 			coursesTitle[0] = "Starter";
@@ -25,7 +24,6 @@ public class CoursesTabbedPane extends Container{
 				tmpPanel.add(dpv[t]);
 				coursesTabbedPane.addTab(coursesTitle[t],tmpPanel);
 			}
-			setSize(600,800);
 			this.add(coursesTabbedPane,BorderLayout.PAGE_START);
 	}
 }

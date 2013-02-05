@@ -1,27 +1,18 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
-import javax.swing.AbstractButton;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
 
 
 public class MainView extends JPanel {
     DragAndDropController dragAndDropController;
+    DishPickerViewController controllerDPVstarter,controllerDPVmain,controllerDPVdessert;
 	
 	public MainView(DinnerModel model){
 		setLayout(new GridBagLayout());
@@ -33,8 +24,11 @@ public class MainView extends JPanel {
 		
 		DishPickerView[] listDPV = new DishPickerView[3];
 		listDPV[0] = new DishPickerView(model, Dish.STARTER);
+		controllerDPVstarter = new DishPickerViewController(model, listDPV[0]);
 		listDPV[1] = new DishPickerView(model, Dish.MAIN);
+		controllerDPVmain = new DishPickerViewController(model, listDPV[1]);
 		listDPV[2] = new DishPickerView(model, Dish.DESERT);
+		controllerDPVdessert = new DishPickerViewController(model, listDPV[2]);
 		
 		CoursesTabbedPane tabs = new CoursesTabbedPane(listDPV);
 		mainConstraints.gridx = 0;

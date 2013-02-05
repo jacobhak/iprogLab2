@@ -72,6 +72,16 @@ public class DinnerModel extends Observable implements IDinnerModel {
     public Dish getSelectedDish(int type) {
          return currentMenu.get(type);
     }
+    
+    public Dish getSpecificDish(String name){
+    	Dish result = null;
+		for(Dish d : dishes){
+			if(d.getName().equals(name)){
+				result=d;
+			}
+		}
+		return result;
+    }
 
     public Set<Dish> getFullMenu() {
         return new HashSet<Dish>(currentMenu);
