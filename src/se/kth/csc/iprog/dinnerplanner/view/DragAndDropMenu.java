@@ -27,6 +27,7 @@ public class DragAndDropMenu extends Container {
         panel.add(numGuests,constraints);
         
         IncrementField inField = new IncrementField(dm);
+        IncrementController ic = new IncrementController(dm, inField);
         constraints.gridx = 1;
         constraints.gridy = 0;
         panel.add(inField,constraints);
