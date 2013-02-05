@@ -13,7 +13,9 @@ import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 
 public class DragAndDropMenu extends Container {
-
+	private JButton prep;
+	private JButton ingr;
+	
 	public DragAndDropMenu(DinnerModel dm){
 		setLayout(new BorderLayout());
 
@@ -73,13 +75,13 @@ public class DragAndDropMenu extends Container {
         constraints.gridwidth = 1;
         panel.add(deleteDish,constraints);
         
-        JButton prep = new JButton("Preparations");
+        this.prep = new JButton("Preparations");
         constraints.gridx = 0;
         constraints.gridy = 5;
         constraints.gridwidth = 1;
         panel.add(prep,constraints);
         
-        JButton ingr = new JButton("Ingredients");
+        this.ingr = new JButton("Ingredients");
         constraints.gridx = 1;
         constraints.gridy = 5;
         constraints.gridwidth = 1;
@@ -87,7 +89,13 @@ public class DragAndDropMenu extends Container {
 
         setSize(400,200);
         this.add(panel,BorderLayout.PAGE_START);
-        
-        
+	}
+	
+	public JButton getIngrButton() {
+		return this.ingr;
+	}
+	
+	public JButton getPrepButton() {
+		return this.prep;
 	}
 }

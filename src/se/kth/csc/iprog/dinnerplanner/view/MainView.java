@@ -55,18 +55,5 @@ public class MainView extends JPanel {
 		mainConstraints.gridy = 0;
         mainConstraints.gridwidth = 1;
 		this.add(mainDragAndDropMenu,mainConstraints);
-		
-		//JSeparator sep = new JSeparator();
-		//sep.setOrientation(JSeparator.NORTH);
-		
-		
-		
-		/*
-		this.add(new CoursesTabbedPane(dishPV), BorderLayout.CENTER);
-		this.add(dishPV,BorderLayout.WEST);
-		this.add(sep,BorderLayout.CENTER);
-		this.add(new DragAndDropMenu(model),BorderLayout.EAST);
-		*/
-		//here you set other layout elements
 	}
 }
