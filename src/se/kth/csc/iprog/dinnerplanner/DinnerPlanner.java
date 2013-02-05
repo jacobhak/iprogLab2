@@ -39,11 +39,6 @@ public class DinnerPlanner extends JFrame {
         ingredientsFrame.setTitle("Ingredients");
         ingredientsFrame.setVisible(true);
 
-        //Init DishFrame
-        DishFrame dishFrame = new DishFrame(dinnerPlanner.model);
-        dishFrame.setTitle("Dish");
-        dishFrame.setVisible(true);
-
         //PreparationsFrame
         PreparationsFrame preparationsFrame = new PreparationsFrame(dinnerPlanner.model);
         preparationsFrame.setTitle("Preparation");

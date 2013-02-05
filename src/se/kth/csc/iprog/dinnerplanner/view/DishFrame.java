@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class DishFrame extends JFrame {
-    public DishFrame(DinnerModel model){
+    public DishFrame(Dish dish){
         JPanel panel = new JPanel(new GridBagLayout());
         setSize(500, 330);
 
@@ -24,7 +25,7 @@ public class DishFrame extends JFrame {
         constraints.gridheight = 1;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.HORIZONTAL;
-        panel.add(new DishTitleImageView(model.getSelectedDish(0)), constraints);
+        panel.add(new DishTitleImageView(dish), constraints);
 
         //Horizontal Separator
         constraints = new GridBagConstraints();
@@ -45,7 +46,7 @@ public class DishFrame extends JFrame {
         constraints.fill = GridBagConstraints.VERTICAL;
         JPanel bottomLeftPanel = new JPanel();
         JTextArea textArea = new JTextArea();
-        textArea.setText(model.getSelectedDish(0).getDescription());
+        textArea.setText(dish.getDescription());
         textArea.setColumns(20);
         textArea.setLineWrap(true);
         bottomLeftPanel.add(textArea);
@@ -73,7 +74,7 @@ public class DishFrame extends JFrame {
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
         constraints.fill = GridBagConstraints.VERTICAL;
-        panel.add(new IngredientsTableView(model.getSelectedDish(0)),constraints);
+        panel.add(new IngredientsTableView(dish),constraints);
 
         add(panel);
     }
