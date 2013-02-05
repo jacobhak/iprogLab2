@@ -5,9 +5,9 @@ import java.util.Set;
 
 public class Dish {
 	
-	public static final int STARTER = 1;
-	public static final int MAIN = 2;
-	public static final int DESERT = 3;
+	public static final int STARTER = 0;
+	public static final int MAIN = 1;
+	public static final int DESERT = 2;
     public static final String STARTER_TEXT = "Starter";
     public static final String MAIN_TEXT = "Main";
     public static final String DESSERT_TEXT = "Dessert";
@@ -42,11 +42,11 @@ public class Dish {
 
     public String getTypeText() {
         switch (type){
-            case 1:
+            case Dish.STARTER:
                 return STARTER_TEXT;
-            case 2:
+            case Dish.MAIN:
                 return MAIN_TEXT;
-            case 3:
+            case Dish.DESERT:
                 return DESSERT_TEXT;
         }
         return "";
