@@ -19,10 +19,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
         numberOfGuests = 0;
 		addExampleData();
 	}
-	
-	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
-	 */
+
 	public Set<Dish> getDishes(){
 		return dishes;
 	}
