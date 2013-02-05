@@ -35,7 +35,8 @@ public class DishPickerViewController implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == dishPV.getSearchButton()) {
-					//TODO sökinplementation
+                    System.out.print("Search handled "+dishPV.getSearchInput());
+					dishPV.setDishes(model.filterDishesOfType(dishPV.getDishType(),dishPV.getSearchInput()));
 				}
 				
 				Iterator<JButton> it = dishButtons.iterator();
