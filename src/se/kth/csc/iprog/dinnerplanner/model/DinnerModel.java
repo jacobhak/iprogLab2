@@ -111,7 +111,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
         dish1.addIngredient(dish1ing4);
         dish1.addIngredient(dish1ing5);
         dishes.add(dish1);
-        currentMenu.add(0,dish1);
+        currentMenu.add(Dish.STARTER,dish1);
 
         Dish dish2 = new Dish("Meat balls",Dish.MAIN,"meatballs.jpg","Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.");
         Ingredient dish2ing1 = new Ingredient("extra lean ground beef",115,"g",20);
@@ -137,7 +137,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
         dish2.addIngredient(dish2ing10);
         dish2.addIngredient(dish2ing11);
         dishes.add(dish2);
-        currentMenu.add(1,dish2);
+        currentMenu.add(Dish.MAIN,dish2);
         
         
         Dish dish3 = new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min.");
@@ -149,8 +149,6 @@ public class DinnerModel extends Observable implements IDinnerModel {
         dish3.addIngredient(dish3ing3);
         dishes.add(dish3);
 
-        currentMenu.add(2, dish3);
-        
         Dish dish4 = new Dish("Sourdough",Dish.STARTER,"sourdough.jpg","Preheat oven to 225C. Mix ingredients. Work the dough. Place in oven for 1 hour.");
         Ingredient dish4ing1 = new Ingredient("Flour",1,"l",1);
         Ingredient dish4ing2 = new Ingredient("Yiest",50,"g",1);
@@ -159,7 +157,6 @@ public class DinnerModel extends Observable implements IDinnerModel {
         dish4.addIngredient(dish4ing2);
         dish4.addIngredient(dish4ing3);
         dishes.add(dish4);
-        currentMenu.add(3,dish4);
         dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
         dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
         dishes.add(new Dish("Baked Brie",Dish.STARTER,"bakedbrie.jpg","Cut a cross in the Brie. Preheat oven to 225C. Pour white wine and garlic into brie. Place in oven for 20 min."));
