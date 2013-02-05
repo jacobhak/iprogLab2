@@ -1,6 +1,8 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,12 +14,15 @@ import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 
 
-public class DragAndDropMenu extends Container {
+public class DragAndDropMenu extends Container implements Observer {
 	private JButton prep;
 	private JButton ingr;
+    private JLabel costLabel;
+    private DinnerModel model;
 	
 	public DragAndDropMenu(DinnerModel dm){
 		setLayout(new BorderLayout());
+        model = dm;
 
         JPanel panel = new JPanel(new GridBagLayout());
 
@@ -39,10 +44,10 @@ public class DragAndDropMenu extends Container {
         constraints.gridy = 1;
         panel.add(tot,constraints);
         
-        JLabel cost = new JLabel("$ "+dm.getTotalMenuPrice());
+        costLabel = new JLabel("$ "+dm.getTotalMenuPrice());
         constraints.gridx = 1;
         constraints.gridy = 1;
-        panel.add(cost,constraints);
+        panel.add(costLabel,constraints);
         
         JLabel dinnerMenuText = new JLabel("Dinner Menu");
         dinnerMenuText.setFont(new Font("Serif", Font.BOLD, 36));
@@ -89,6 +94,7 @@ public class DragAndDropMenu extends Container {
 
         setSize(400,200);
         this.add(panel,BorderLayout.PAGE_START);
+        dm.addObserver(this);
 	}
 	
 	public JButton getIngrButton() {
@@ -98,4 +104,9 @@ public class DragAndDropMenu extends Container {
 	public JButton getPrepButton() {
 		return this.prep;
 	}
+
+    @Override
+    public void update(Observable observable, Object o) {
+        costLabel.setText("$ "+model.getTotalMenuPrice());
+    }
 }
