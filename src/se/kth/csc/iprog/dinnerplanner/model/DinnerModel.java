@@ -64,7 +64,20 @@ public class DinnerModel extends Observable implements IDinnerModel {
     }
 
     public void addDishToMenu(Dish dish) {
-        currentMenu.set(dish.getType(),dish);
+        if (currentMenu.size()-1 < dish.getType())
+            currentMenu.add(dish);
+        // Handling wrong dish at wrong index
+        else if (currentMenu.get(dish.getType()).getType() != dish.getType()) {
+            Dish dish1 = currentMenu.get(dish.getType());
+            currentMenu.set(dish.getType(),dish);
+            currentMenu.add(dish1);
+        } else currentMenu.set(dish.getType(),dish);
+        setChanged();
+        notifyObservers(currentMenu);
+    }
+
+    public void removeDishFromMenu(Dish dish) {
+        currentMenu.remove(dish);
         setChanged();
         notifyObservers(currentMenu);
     }

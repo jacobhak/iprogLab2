@@ -1,6 +1,8 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -12,17 +14,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 
-
-public class DragAndDropMenu extends Container implements Observer {
+public class DragAndDropMenu extends Container implements Observer,ActionListener {
 	private JButton prep;
 	private JButton ingr;
     private JLabel costLabel;
     private DinnerModel model;
     private JPanel menulistPanel;
     private JPanel rootPanel;
-	
+
 	public DragAndDropMenu(DinnerModel dm){
 		setLayout(new BorderLayout());
         model = dm;
@@ -116,14 +118,31 @@ public class DragAndDropMenu extends Container implements Observer {
 		return this.prep;
 	}
 
+    public JPanel getMenulistPanel() {
+        return menulistPanel;
+    }
+
     private void setMenuItems() {
         menulistPanel.removeAll();
         MenuItem menuItem = null;
         for(int i = 0;i<model.getCurrentMenu().size();i++) {
             menuItem = new MenuItem(model.getSelectedDish(i));
+            menuItem.getDeleteDish().addActionListener(this);
             menulistPanel.add(menuItem);
         }
         rootPanel.updateUI();
+    }
+
+    public Dish getDishFromMenuItemButton(JButton button) {
+        for (Component component : getMenulistPanel().getComponents()) {
+            if (component.getClass().equals(MenuItem.class)) {
+                MenuItem menuItem = (MenuItem) component;
+                if (menuItem.getDeleteDish().equals(button)) {
+                    return menuItem.getDish();
+                }
+            }
+        }
+        return null;
     }
 
     @Override
@@ -132,5 +151,11 @@ public class DragAndDropMenu extends Container implements Observer {
         if (o.getClass().equals(ArrayList.class)) {
             setMenuItems();
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.print("got menu delete!");
+        model.removeDishFromMenu(getDishFromMenuItemButton((JButton)e.getSource()));
     }
 }
