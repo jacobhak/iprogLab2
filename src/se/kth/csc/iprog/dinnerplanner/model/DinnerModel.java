@@ -86,6 +86,10 @@ public class DinnerModel extends Observable implements IDinnerModel {
     public Set<Dish> getFullMenu() {
         return new HashSet<Dish>(currentMenu);
     }
+    
+    public ArrayList<Dish> getCurrentMenu(){
+    	return currentMenu;
+    }
 
     public Set<Ingredient> getAllIngredients() {
         HashSet<Ingredient> allIngredients = new HashSet<Ingredient>();
