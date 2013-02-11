@@ -128,10 +128,8 @@ public class DragAndDropMenu extends Container implements Observer {
 
     @Override
     public void update(Observable observable, Object o) {
-        if (o.getClass().equals(Integer.class))
-            costLabel.setText("$ "+model.getTotalMenuPrice());
-        else if (o.getClass().equals(ArrayList.class)) {
-            System.out.println("Updating menu items");
+        costLabel.setText("$ "+model.getTotalMenuPrice());
+        if (o.getClass().equals(ArrayList.class)) {
             setMenuItems();
         }
     }
