@@ -30,12 +30,14 @@ public class DishPickerView extends JPanel{
 	private JScrollPane scrollPane;
 	private Set<Dish> dishes;
 	private Set<JButton> dishButtons;
+    private int dishType;
 	
 	
 	public DishPickerView(DinnerModel dm, int dishType) {
 		setLayout(new BorderLayout());
 		dishes = dm.getDishesOfType(dishType);
 		dishButtons = new HashSet<JButton>();
+        this.dishType = dishType;
 		
 		//searchBar panel
 		searchInput = new JTextField();
@@ -73,12 +75,49 @@ public class DishPickerView extends JPanel{
 		this.add(searchBarPanel, BorderLayout.PAGE_START);
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
-	
-	public JButton getSearchButton(){
-		return searchButton;
-	}
-	
-	public Set<JButton> getDishButtons(){
-		return dishButtons;
-	}
+
+    public JButton getSearchButton(){
+        return searchButton;
+    }
+
+    public Set<JButton> getDishButtons(){
+        return dishButtons;
+    }
+    public JButton getSearchButton(){
+        return searchButton;
+    }
+
+    public Set<JButton> getDishButtons(){
+        return dishButtons;
+    }
+
+    public String getSearchInput() {
+        return searchInput.getText().toString();
+    }
+    public int getDishType() {
+        return dishType;
+    }
+    public void setDishes(Set<Dish> dishes) {
+        if (dishes != this.dishes) this.dishes.clear();
+        this.dishesPanel.removeAll();
+        this.dishButtons.clear();
+
+        this.dishes = dishes;
+
+        Iterator<Dish> it = dishes.iterator();
+        while(it.hasNext()) {
+            Dish currentDish = it.next();
+            String dishName = currentDish.getName();
+            String imageURL = "images/"+currentDish.getImage();
+            Icon dishIcon = new ImageIcon(imageURL);
+
+            JButton dishButton = new JButton(dishName,dishIcon);
+
+            dishButton.setVerticalTextPosition(AbstractButton.BOTTOM);
+            dishButton.setHorizontalTextPosition(AbstractButton.CENTER);
+            dishesPanel.add(dishButton);
+            dishButtons.add(dishButton);
+        }
+        this.updateUI();
+    }
 }
