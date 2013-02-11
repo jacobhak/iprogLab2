@@ -1,5 +1,8 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
@@ -17,9 +20,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-
-import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
-import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 public class DishPickerView extends JPanel{
 	
@@ -51,21 +51,7 @@ public class DishPickerView extends JPanel{
 		
 		
 		dishesPanel = new JPanel(new GridLayout(2,4));
-
-		Iterator<Dish> it = dishes.iterator();
-		
-		while(it.hasNext()) {
-			Dish currentDish = it.next();
-			String dishName = currentDish.getName();
-			String imageURL = "images/"+currentDish.getImage();
-			Icon dishIcon = new ImageIcon(imageURL);
-			
-			JButton dishButton = new JButton(dishName,dishIcon);
-			dishButton.setVerticalTextPosition(AbstractButton.BOTTOM);
-			dishButton.setHorizontalTextPosition(AbstractButton.CENTER);
-			dishesPanel.add(dishButton);
-			dishButtons.add(dishButton);
-		}			
+        setDishes(dishes);
 		
 		// Make scrollbar for dishes
 		scrollPane = new JScrollPane(dishesPanel);
@@ -76,20 +62,20 @@ public class DishPickerView extends JPanel{
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 
-    public JButton getSearchButton(){
-        return searchButton;
-    }
-
-    public Set<JButton> getDishButtons(){
-        return dishButtons;
-    }
-    public JButton getSearchButton(){
-        return searchButton;
-    }
-
-    public Set<JButton> getDishButtons(){
-        return dishButtons;
-    }
+//    public JButton getSearchButton(){
+//        return searchButton;
+//    }
+//
+//    public Set<JButton> getDishButtons(){
+//        return dishButtons;
+//    }
+//    public JButton getSearchButton(){
+//        return searchButton;
+//    }
+//
+//    public Set<JButton> getDishButtons(){
+//        return dishButtons;
+//    }
 
     public String getSearchInput() {
         return searchInput.getText().toString();
@@ -119,5 +105,13 @@ public class DishPickerView extends JPanel{
             dishButtons.add(dishButton);
         }
         this.updateUI();
+    }
+
+    public JButton getSearchButton() {
+        return searchButton;
+    }
+
+    public Set<JButton> getDishButtons() {
+        return dishButtons;
     }
 }
