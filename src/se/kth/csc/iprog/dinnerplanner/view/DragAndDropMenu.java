@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.view;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -19,12 +20,15 @@ public class DragAndDropMenu extends Container implements Observer {
 	private JButton ingr;
     private JLabel costLabel;
     private DinnerModel model;
+    private JPanel menulistPanel;
+    private JPanel rootPanel;
 	
 	public DragAndDropMenu(DinnerModel dm){
 		setLayout(new BorderLayout());
         model = dm;
 
         JPanel panel = new JPanel(new GridBagLayout());
+        rootPanel = panel;
 
         GridBagConstraints constraints = new GridBagConstraints();
         
@@ -67,16 +71,12 @@ public class DragAndDropMenu extends Container implements Observer {
         constraints.gridwidth = 2;
         panel.add(dragDropArea,constraints);
         
-        JPanel menulistPanel = new JPanel(new GridLayout(3,1));
+        menulistPanel = new JPanel(new GridLayout(3,1));
 
         constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.gridwidth = 1;
-        MenuItem menuItem = null;
-        for(int i = 0;i<dm.getCurrentMenu().size();i++) {
-        	menuItem = new MenuItem(dm.getSelectedDish(i));
-            menulistPanel.add(menuItem);
-        }
+
 
         
 //        JButton deleteDish = new JButton("Delete");
@@ -88,7 +88,7 @@ public class DragAndDropMenu extends Container implements Observer {
         
         
         panel.add(menulistPanel,constraints);
-        
+        setMenuItems();
         
         
         this.prep = new JButton("Preparations");
@@ -116,8 +116,23 @@ public class DragAndDropMenu extends Container implements Observer {
 		return this.prep;
 	}
 
+    private void setMenuItems() {
+        menulistPanel.removeAll();
+        MenuItem menuItem = null;
+        for(int i = 0;i<model.getCurrentMenu().size();i++) {
+            menuItem = new MenuItem(model.getSelectedDish(i));
+            menulistPanel.add(menuItem);
+        }
+        rootPanel.updateUI();
+    }
+
     @Override
     public void update(Observable observable, Object o) {
-        costLabel.setText("$ "+model.getTotalMenuPrice());
+        if (o.getClass().equals(Integer.class))
+            costLabel.setText("$ "+model.getTotalMenuPrice());
+        else if (o.getClass().equals(ArrayList.class)) {
+            System.out.println("Updating menu items");
+            setMenuItems();
+        }
     }
 }
