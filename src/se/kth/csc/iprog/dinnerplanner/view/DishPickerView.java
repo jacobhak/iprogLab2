@@ -21,7 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class DishPickerView extends JPanel{
+class DishPickerView extends JPanel{
 
     private JTextField searchInput;
     private JPanel searchBarPanel;
@@ -42,11 +42,12 @@ public class DishPickerView extends JPanel{
         //searchBar panel
         searchInput = new JTextField();
         searchInput.setText("Enter dish to search");
-
+        searchInput.setColumns(20);
         searchBarPanel = new JPanel(new FlowLayout());
         searchBarPanel.add(new JLabel("SEARCH: "));
         searchBarPanel.add(searchInput);
         searchButton = new JButton("Search");
+
         searchBarPanel.add(searchButton);
 
 
