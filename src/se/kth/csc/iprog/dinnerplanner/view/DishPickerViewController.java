@@ -45,6 +45,7 @@ public class DishPickerViewController implements ActionListener{
 					if(e.getSource() == currentDishButton) {
 						String dishName = currentDishButton.getText();
 						Dish currentDish = model.getSpecificDish(dishName);
+                        model.addDishToMenu(currentDish);
 						DishFrame dishFrame = new DishFrame(currentDish);
 						dishFrame.setVisible(true);
 					}

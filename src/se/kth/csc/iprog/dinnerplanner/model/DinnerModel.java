@@ -64,7 +64,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
     }
 
     public void addDishToMenu(Dish dish) {
-        currentMenu.add(dish.getType(),dish);
+        currentMenu.set(dish.getType(),dish);
         setChanged();
         notifyObservers(currentMenu);
     }
