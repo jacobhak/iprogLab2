@@ -67,18 +67,29 @@ public class DragAndDropMenu extends Container implements Observer {
         constraints.gridwidth = 2;
         panel.add(dragDropArea,constraints);
         
-        DishTitleImageView showDishInMenu = new DishTitleImageView(dm.getSelectedDish(0));
+        JPanel menulistPanel = new JPanel(new GridLayout(3,1));
+
         constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.gridwidth = 1;
-        panel.add(showDishInMenu,constraints);
+        MenuItem menuItem = null;
+        for(int i = 0;i<dm.getCurrentMenu().size();i++) {
+        	menuItem = new MenuItem(dm.getSelectedDish(i));
+            menulistPanel.add(menuItem);
+        }
+
         
-        JButton deleteDish = new JButton("Delete");
-        deleteDish.setBackground(Color.red);
-        constraints.gridx = 1;
-        constraints.gridy = 4;
-        constraints.gridwidth = 1;
-        panel.add(deleteDish,constraints);
+//        JButton deleteDish = new JButton("Delete");
+//        deleteDish.setBackground(Color.red);
+//        constraints.gridx = 1;
+//        constraints.gridy = 4;
+//        constraints.gridwidth = 1;
+//        panel.add(deleteDish,constraints);
+        
+        
+        panel.add(menulistPanel,constraints);
+        
+        
         
         this.prep = new JButton("Preparations");
         constraints.gridx = 0;
